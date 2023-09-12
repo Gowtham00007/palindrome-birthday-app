@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+
+
+body {
+    font-family: 'Space Mono', monospace;
+    margin: 0;
+    padding: 1rem;
+    box-sizing: border-box;
+    height: 100vh;
+    background-color:#134e4a;
+    color: white;
+  }
+  
+  main{
+    border: 1px solid white;
+    text-align: center;
+    height: 100%;
+  }
+  
+  p {
+    padding: 2rem;
+    text-align: center;
+    font-size: large;
+  }
+  
+  #show-btn{
+    font-weight: bolder;
+    font-family: space mono;
+    color:black;
+    background-color: rgb(199, 139, 10);
+  }
+
+  #bday-input{
+    font-size: large;
+    
+  }
