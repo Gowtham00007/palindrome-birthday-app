@@ -1,2 +1,2 @@
 # palindrome-birthday-app
- the app tels you is your birthday palimdrome or not and if not it shows the next palimdrome date and the days you missed to achive it 
+ the app tells you is your birthday palindrome or not and if not it shows the next palindrome date and the days you missed to achieve it .
