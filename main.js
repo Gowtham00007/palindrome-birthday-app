@@ -180,15 +180,34 @@ function getPrevpalindromeDate(date){
 }
 
 
-
-
 var dateInPutRef = document.querySelector('#bday-input');
 var showBtnRef = document.querySelector('#show-btn');
 var resultRef = document.querySelector('#result');
+// var processingMessege= document.querySelector('#processingMessage');
 
 function clickHandler(e){
+      
+    
     var bdayStr =  dateInPutRef.value;
     if(bdayStr!==''){
+
+
+      document.getElementById("processingMessage").style.display = "block";
+
+      setTimeout(function () {
+            // After the delay, hide the processing message
+            document.getElementById("processingMessage").style.display = "none";
+            
+            // Display the output message
+            var outputDiv = document.getElementById("outputMessage");
+            outputDiv.innerHTML = "Processing complete!";
+            outputDiv.style.display = "block";
+        }, 1000); // 3000 milliseconds = 3 seconds
+
+
+
+
+
           var listOfDate=bdayStr.split('-');
           var date={
                 day:Number(listOfDate[2]),
@@ -199,18 +218,30 @@ function clickHandler(e){
 var isPalindrome = ckeckPalindromeForAllDateForms(date);
 var [ctr,nextDate] = getNextpalindromeDate(date);
 var [pctr,prevDate] = getPrevpalindromeDate(date);
-if(isPalindrome){
-    resultRef.innerText='🎈 yay! your birthday is palindrome !! 🎈 '
-}
-else if(pctr>ctr ){
-    // var [ctr,nextDate] = getNextpalindromeDate(date);
-    resultRef.innerText=`The next palindrome date is ${nextDate.day}-${nextDate.month}-${nextDate.year} . you missed it by ${ctr} days ! 😲`
-}else{
-    // var [pctr,prevDate] = getNextpalindromeDate(date);
-    resultRef.innerText=`The next palindrome date is ${prevDate.day}-${prevDate.month}-${prevDate.year} . you missed it by ${pctr} days ! 😲`
-}
+
+setTimeout(function(){
+
+      if(isPalindrome){
+            resultRef.innerText='🎈 yay! your birthday is palindrome !! 🎈 '
+        }
+        else if(pctr>ctr ){
+            // var [ctr,nextDate] = getNextpalindromeDate(date);
+            resultRef.innerText=`The next palindrome date is ${nextDate.day}-${nextDate.month}-${nextDate.year} . you missed it by ${ctr} days ! 😲`
+        }else{
+            // var [pctr,prevDate] = getNextpalindromeDate(date);
+            resultRef.innerText=`The next palindrome date is ${prevDate.day}-${prevDate.month}-${prevDate.year} . you missed it by ${pctr} days ! 😲`
+        }
+
+
+},2000);
+    }else {
+      var outputDiv = document.getElementById("outputMessage");
+      outputDiv.innerHTML = "PLEASE ENTER THE DATE !";
+      outputDiv.style.display = "block";
     }
-}
+
+    }
+
 
 showBtnRef.addEventListener('click',clickHandler);
-
+  
